@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Project extends Model
 {
     use HasFactory;
 
 
-    protected $fillable = ['title', 'description', 'cover_image', 'content'];
+    protected $fillable = ['title', 'description', 'cover_image', 'content','tecnologies', 'git_link'];
 
 
     /**
@@ -22,6 +23,11 @@ class Project extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(category::class);
+    }
+
+    public function tecnologies(): BelongsToMany
+    {
+        return $this->belongsToMany(Tecnology::class);
     }
 }
 
