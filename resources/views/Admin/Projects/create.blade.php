@@ -39,23 +39,40 @@
                         id="cover_image" placeholder="choose a file" aria-describedby="fileHelp">
                     <div id="fileHelp" class="form-text">Add an image (max 500kb)</div>
                 </div>
+                
 
 
                 <div class="mb-3">
-                    <label for="category_id" class="form-label">Categories</label>
-                    <select class="form-select" name="" id="">
-                        <option selected disabled>Select a Category</option>
-                        <option value="">Uncategorized</option>
+                    <label for="tecnology_id" class="form-label">Tecnologies</label>
+                    <select multiple class="form-select" name="" id="">
+                        <option selected disabled>Select Tecnologies</option>
                         
+                        
+                        @forelse ($tecnologies as $tecnology)
 
-
-                        @forelse ($categories as $category)
-
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$tecnology->id}}"->{{$tecnology->name}}</option>
 
                         @empty
 
                         @endforelse
+                        <option value="">Uncategorized</option>
+                    </select>
+                </div>
+                
+                       
+                <div class="mb-3">
+                    <label for="category_id" class="form-label">Categories</label>
+                    <select class="form-select" name="" id="">
+                        <option selected disabled>Select a Category</option>
+        
+                        @forelse ($categories as $category)
+
+                            <option value="{{$category->id}}"->{{$category->name}}</option>
+
+                        @empty
+
+                        @endforelse
+                        <option value="">Uncategorized</option>
                     </select>
                 </div>
                 
@@ -63,28 +80,18 @@
                 <div class="mb-3">
                     <label for="git_link" class="form-label">Git Link</label>
                     <input type="text" name="git_link" id="git_link" class="form-control"
-                        @error('git_link') is-invalid @enderror placeholder="GitLink" aria-describedby="helpergit_link"
-                        value="{{ old('git_link') }}">
+                      
                     <small id="helpergit_link" class="text-muted">Type project git link</small>
                 </div>
-                @error('git_link')
-                    <span class="text-danger">
-                        {{ message }}
-                    </span>
-                @enderror
+               
 
                 <div class="mb-3">
                     <label for="link" class="form-label">External Link</label>
                     <input type="text" name="link" id="link" class="form-control"
-                        @error('link') is-invalid @enderror placeholder="Link" aria-describedby="helper_link"
-                        value="{{ old('link') }}">
+                       
                     <small id="helper_link" class="text-muted">Type your project link</small>
                 </div>
-                @error('git_link')
-                    <span class="text-danger">
-                        {{ message }}
-                    </span>
-                @enderror
+               
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>

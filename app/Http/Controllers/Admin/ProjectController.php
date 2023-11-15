@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Tecnology;
 
 class ProjectController extends Controller
 {
@@ -16,6 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+    
         return view("admin.projects.index", compact('projects'));
     }
 
@@ -23,11 +25,12 @@ class ProjectController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        
-        
+    {   
+
         $categories = Category::all();
-        return view('admin.projects.create', compact('categories'));
+        $tecnologies = Tecnology::all();
+
+        return view('admin.projects.create', compact('categories', 'tecnologies'));
     }
 
 
@@ -42,8 +45,9 @@ class ProjectController extends Controller
         
 
         Project::create($val_data);
+        
 
-        return to_route('admin.projects.index')->with('message', 'New Project Added');
+        // return to_route('admin.projects.index')->with('message', 'New Project Added');
     }
 
     /**
