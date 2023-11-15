@@ -40,14 +40,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        
+       
         $val_data = $request->validated();
         
-
-        Project::create($val_data);
+      
+        $project=Project::create($val_data);
+        $project->tecnologies()->attach($val_data['tecnologies_selected']);
         
-
-        // return to_route('admin.projects.index')->with('message', 'New Project Added');
+        return to_route('admin.projects.index')->with('message', 'New Project Added');
     }
 
     /**

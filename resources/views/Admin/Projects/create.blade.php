@@ -25,8 +25,7 @@
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" name="title" id="title" class="form-control"
-                        @error('title') is-invalid @enderror placeholder="title" aria-describedby="helperTitle"
-                        value="{{ old('title') }}">
+                        
                     <small id="helperTitle" class="text-muted">Type your post title (max:50 characters)</small>
                 </div>
                
@@ -44,7 +43,7 @@
 
                 <div class="mb-3">
                     <label for="tecnology_id" class="form-label">Tecnologies</label>
-                    <select multiple class="form-select" name="" id="">
+                    <select multiple class="form-select" name="tecnologies_selected[]" id="tecnologies_selected">
                         <option selected disabled>Select Tecnologies</option>
                         
                         
@@ -62,7 +61,7 @@
                        
                 <div class="mb-3">
                     <label for="category_id" class="form-label">Categories</label>
-                    <select class="form-select" name="" id="">
+                    <select class="form-select" name="category_selected" id="category_selected">
                         <option selected disabled>Select a Category</option>
         
                         @forelse ($categories as $category)
