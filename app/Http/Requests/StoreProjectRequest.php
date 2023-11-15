@@ -28,7 +28,7 @@ class StoreProjectRequest extends FormRequest
             'git_link' => 'bail|nullable|string|max:100',
             'link' => 'bail|nullable|string|max:100',
             'tecnologies_selected' => 'exists:tecnologies,id',
-            'category_selected' => 'exists:categories,id',
+            'category_id' => 'exists:projects,id',
 
         ];
     }

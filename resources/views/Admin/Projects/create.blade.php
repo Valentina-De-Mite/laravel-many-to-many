@@ -61,7 +61,7 @@
                        
                 <div class="mb-3">
                     <label for="category_id" class="form-label">Categories</label>
-                    <select class="form-select" name="category_selected" id="category_selected">
+                    <select class="form-select" name="category_id" id="category_id">
                         <option selected disabled>Select a Category</option>
         
                         @forelse ($categories as $category)
