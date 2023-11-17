@@ -48,6 +48,9 @@
                                             <td class="text-center m-auto"><a
                                                     href="{{ $project->git_link }}">{{ $project->git_link }}</a>
                                             </td>
+
+
+                                           
                                             <td class="text-center m-auto">
 
                                                 <a class="btn btn-success"
