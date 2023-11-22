@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('projects', function() {
     return response()->json([
     'status' => 'success',
-    'result' => Project::with('category', 'tecnologies')-> paginate(12)
+    'result' => Project::with('category', 'tecnologies')-> paginate(4)
     ]);
     
 });
